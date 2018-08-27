@@ -1,33 +1,13 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <input type="text" v-model="textValue" />
-    <button @click="addItem">提交</button>
-    <ul>
-      <router-view v-for="(item,index) of lists" :content="item" :index="index" @delete="handleDelete" :key="index"/>
-    </ul>
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
-  data () {
-    return {
-      textValue: '',
-      lists: []
-    }
-  },
-  methods: {
-    addItem () {
-      this.lists.push(this.textValue)
-      this.textValue = ''
-    },
-    handleDelete(index){
-      this.lists.splice(index,1)
-    }
-  }
-};
+  name: 'App'
+}
 </script>
 
 <style>
