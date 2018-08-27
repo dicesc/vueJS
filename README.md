@@ -1,4 +1,4 @@
-# y
+# news app whith vue.js
 
 > my first vue project
 
