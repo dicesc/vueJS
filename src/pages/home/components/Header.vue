@@ -16,12 +16,13 @@
 
 <script>
 export default {
-  name: 'Home'
-}
+  name: "Home"
+};
 </script>
 
 <style lang='stylus' scoped>
-@import '~styles/varibles.styl'
+@import '~styles/varibles.styl';
+
 .header {
     display: flex;
     line-height: 0.86rem;
@@ -31,9 +32,10 @@ export default {
     .header-left {
         width: 0.64rem;
         float: left;
-        .back-icon{
-            font-size .4rem
-            text-align center
+
+        .back-icon {
+            font-size: 0.4rem;
+            text-align: center;
         }
     }
 
