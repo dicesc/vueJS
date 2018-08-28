@@ -1,6 +1,5 @@
 <template>
   <div id="todoItem">
-    <img src="../../assets/logo.png">
     <input type="text" v-model="textValue" />
     <button @click="addItem">提交</button>
     <ul>
