@@ -14,42 +14,42 @@
 
 <script>
 export default {
-  name: "HomeIcons",
+  name: 'HomeIcons',
   data: function () {
     return {
       iconsOption: {
-        pagination: ".swiper-pagination"
+        pagination: '.swiper-pagination'
       },
       swiperList: [
-        { id: "0001" },
-        { id: "0002" },
-        { id: "0003" },
-        { id: "0004" },
-        { id: "0005" },
-        { id: "0006" },
-        { id: "0007" },
-        { id: "0008" },
-        { id: "0009" },
-        { id: "00010" },
-        { id: "00011" },
-        { id: "00012" }
+        { id: '0001' },
+        { id: '0002' },
+        { id: '0003' },
+        { id: '0004' },
+        { id: '0005' },
+        { id: '0006' },
+        { id: '0007' },
+        { id: '0008' },
+        { id: '0009' },
+        { id: '00010' },
+        { id: '00011' },
+        { id: '00012' }
       ]
-    };
+    }
   },
   computed: {
-    pages() {
-      const pages = [];
+    pages () {
+      const pages = []
       this.swiperList.forEach((item, index) => {
-        let page = Math.floor(index / 8);
+        let page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
         }
-        pages[page].push(item);
-      });
-      return pages;
+        pages[page].push(item)
+      })
+      return pages
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
