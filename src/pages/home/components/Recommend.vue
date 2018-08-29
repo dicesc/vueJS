@@ -2,7 +2,7 @@
   <div>
     <p class="recommend-title">热门推荐</p>
     <div class="list" v-for="item in lists" :key="item.id">
-      <img class="left-img" :src="item.url" />
+      <img class="left-img" :src="item.imgUrl" />
       <div class="content">
         <p class="title">{{item.title}}</p>
         <p class="desc">{{item.desc}}</p>
@@ -18,9 +18,9 @@ export default {
   data () {
     return {
       lists: [
-        {id: '0001', url: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '就是这个了', desc: '这里是个很好玩的地方哦'},
-        {id: '0002', url: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '重庆必游TOP10', desc: '重庆, 非去不可'},
-        {id: '0003', url: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '就是这个了', desc: '这里是个很好玩的地方哦'}
+        {id: '0001', imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '就是这个了', desc: '这里是个很好玩的地方哦'},
+        {id: '0002', imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '重庆必游TOP10', desc: '重庆, 非去不可'},
+        {id: '0003', imgUrl: 'http://img1.qunarzz.com/sight/p0/1505/be/be4802e10f3b3107.water.jpg_200x200_0e98aabe.jpg', title: '就是这个了', desc: '这里是个很好玩的地方哦'}
       ]
     }
   }
