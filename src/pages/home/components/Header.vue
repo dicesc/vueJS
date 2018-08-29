@@ -8,7 +8,7 @@
             内容
         </div>
         <div class="header-right">
-            城市
+            {{city}}
             <span class="iconfont">&#58954;</span>
         </div>
     </div>
@@ -16,7 +16,10 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  props: {
+    city: String
+  }
 }
 </script>
 
