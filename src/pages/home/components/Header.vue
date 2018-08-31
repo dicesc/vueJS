@@ -7,10 +7,12 @@
             <span class="iconfont">&#58930;</span>
             内容
         </div>
-        <div class="header-right">
-            {{city}}
-            <span class="iconfont">&#58954;</span>
-        </div>
+        <router-link to="/city">
+            <div class="header-right">
+                {{city}}
+                <span class="iconfont">&#58954;</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -19,6 +21,8 @@ export default {
   name: 'Home',
   props: {
     city: String
+  },
+  methods: {
   }
 }
 </script>
@@ -57,6 +61,7 @@ export default {
         width: 1.24rem;
         float: right;
         text-align: center;
+        color: #ffffff;
     }
 }
 </style>
