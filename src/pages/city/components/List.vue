@@ -6,7 +6,7 @@
                 <div class="current-list">
                     <div class="wrap-button">
                         <div class="button">
-                            北京
+                            {{this.$store.state.city}}
                         </div>
                     </div>
                 </div>
@@ -15,7 +15,7 @@
                 <div class="title border-topbottom">热门城市</div>
                 <div class="current-list">
                     <div class="wrap-button" v-for="item in hotCities" :key="item.id">
-                        <div class="button">
+                        <div class="button" @click="handleClick(item.name)">
                             {{item.name}}
                         </div>
                     </div>
@@ -24,7 +24,7 @@
             <div class="area" v-for="(value,key) in cities" :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div class="item-cell" v-for="item in value" :key="item.id">
+                    <div class="item-cell" v-for="item in value" :key="item.id" @click="handleClick(item.name)">
                         {{item.name}}
                     </div>
                 </div>
@@ -41,6 +41,12 @@ export default {
     hotCities: Array,
     cities: Object,
     valueChange: String
+  },
+  methods: {
+    handleClick (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)

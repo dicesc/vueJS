@@ -5,7 +5,7 @@
     </div>
     <div class="search-result" v-show="searchValue.length" ref="result">
       <ul>
-        <li class="result-item border-topbottom" v-for="item in resultList" :key="item.id">{{item.name}}</li>
+        <li class="result-item border-topbottom" v-for="item in resultList" :key="item.id" @click="handleClick(item.name)">{{item.name}}</li>
         <li class="result-item border-topbottom" v-show="showNoData">您搜索的城市不存在</li>
       </ul>
     </div>
@@ -23,6 +23,11 @@ export default {
     return {
       searchValue: '',
       resultList: []
+    }
+  },
+  methods: {
+    handleClick (city) {
+      this.$store.dispatch('changeCity', city)
     }
   },
   watch: {
