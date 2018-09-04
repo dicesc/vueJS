@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div class="header-left">
-            <span class="iconfont back-icon">&#58916;</span>
+            <div class="iconfont back-icon">&#58916;</div>
         </div>
         <div class="header-input">
             <span class="iconfont">&#58930;</span>
@@ -9,7 +9,7 @@
         </div>
         <router-link to="/city">
             <div class="header-right">
-                {{this.$store.state.city}}
+                {{this.city}}
                 <span class="iconfont">&#58954;</span>
             </div>
         </router-link>
@@ -17,8 +17,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
   }
 }
@@ -38,8 +42,11 @@ export default {
         float: left;
 
         .back-icon {
-            font-size: 0.4rem;
+            position: relative;
+            width: 0.44rem;
             text-align: center;
+            left: 0.1rem;
+            top: 0.1rem;
         }
     }
 
@@ -55,7 +62,8 @@ export default {
     }
 
     .header-right {
-        width: 1.24rem;
+        min-width: 1.2rem;
+        padding: 0.1rem;
         float: right;
         text-align: center;
         color: #ffffff;

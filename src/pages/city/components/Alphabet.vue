@@ -1,9 +1,9 @@
 <template>
-    <div class="alphabet" @touchstart='handleTouchStart' @touchmove='handleTouchMove' @touchend='handleTouchEnd'>
-        <ul>
-            <li class="text" v-for="key in letters" :key="key" :ref="key" @click="handleClick">{{key}}</li>
-        </ul>
-    </div>
+  <div class="alphabet" @touchstart='handleTouchStart' @touchmove='handleTouchMove' @touchend='handleTouchEnd'>
+    <ul>
+      <li class="text" v-for="key in letters" :key="key" :ref="key" @click="handleClick">{{key}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default {
     },
     handleTouchMove (e) {
       if (this.touchStart) {
-        let endY = e.touches[0].clientY - 79
+        let endY = e.touches[0].clientY - 78
         let offsetTop = this.offsetTop
         let index = Math.floor((endY - offsetTop) / 20)
         if (index >= 0 && index < this.letters.length && index !== this.lastIndex) {
@@ -60,20 +60,20 @@ export default {
 @import '~styles/varibles.styl';
 
 .alphabet {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    right: 0rem;
-    bottom: 0rem;
-    top: 1.59rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  right: 0rem;
+  bottom: 0rem;
+  top: 1.56rem;
 
-    .text {
-        font-size: 0.3rem;
-        width: 0.4rem;
-        height: 0.4rem;
-        text-align: center;
-        color: $bgColor;
-    }
+  .text {
+    font-size: 0.3rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    text-align: center;
+    color: $bgColor;
+  }
 }
 </style>
