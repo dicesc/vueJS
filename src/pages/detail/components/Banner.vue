@@ -2,17 +2,17 @@
     <div>
         <div class="banner">
             <div class="img-content" @click="showGallary = true">
-                <img class="img" src="http://img1.qunarzz.com/sight/p0/201305/08/8638c7dbd656cafac8d65eac.jpg_600x330_af87cf27.jpg" />
+                <img class="img" :src="bannerInfo.bannerImg" />
             </div>
             <div class="title-content">
-                <div class="imgs iconfont">&#xe691; 24张</div>
+                <div class="imgs iconfont">&#xe691; {{imgCount}}张</div>
                 <div class="title">
-                    <div>黑山谷(AAAAA景区)</div>
+                    <div>{{bannerInfo.sightName}}</div>
                     <span class="iconfont">视频 &#xe638;</span>
                 </div>
             </div>
         </div>
-        <common-gallary :imgs="imgs" v-show="showGallary" @close='handleGalaryClose'></common-gallary>
+        <common-gallary :imgs="bannerInfo.gallaryImgs" v-show="showGallary" @close='handleGalaryClose'></common-gallary>
     </div>
 </template>
 
@@ -22,12 +22,16 @@ export default {
   name: 'DetailBanner',
   data () {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/p0/1708/ef/ef538bb8d9911483a3.img.jpg_600x330_c3a0d8fa.jpg', 'http://img1.qunarzz.com/sight/p0/201403/07/6457ef01e33f69234f30949a340f2f56.jpg_600x330_f7a62e65.jpg']
+      showGallary: false
     }
   },
+  props: {
+    bannerInfo: Object
+  },
   computed: {
-
+    imgCount () {
+      return this.bannerInfo.gallaryImgs ? this.bannerInfo.gallaryImgs.length : 0
+    }
   },
   methods: {
     handleGalaryClose () {
