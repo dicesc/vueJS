@@ -12,6 +12,7 @@
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailList from './components/List'
+
 import axois from 'axios'
 export default {
   name: 'Detail',
@@ -19,6 +20,7 @@ export default {
     DetailBanner,
     DetailHeader,
     DetailList
+
   },
   data () {
     return {
