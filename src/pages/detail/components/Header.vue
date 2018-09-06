@@ -1,87 +1,90 @@
 <template>
-    <div>
-        <div class="banner">
-            <div class="img-content" @click="showGallary = true">
-                <img class="img" src="http://img1.qunarzz.com/sight/p0/201305/08/8638c7dbd656cafac8d65eac.jpg_600x330_af87cf27.jpg" />
-            </div>
-            <div class="title-content">
-                <div class="imgs iconfont">&#xe691; 24张</div>
-                <div class="title">
-                    <div>黑山谷(AAAAA景区)</div>
-                    <span class="iconfont">视频 &#xe638;</span>
-                </div>
-            </div>
+    <div class="header">
+        <router-link to="/" tag="div" class="back">
+            <div class="iconfont back-icon">&#xe600;</div>
+        </router-link>
+        <div class="fix-back" :style="opacity">
+            <p>城市选择</p>
+            <router-link to="/">
+                <div class="iconfont header-back">&#xe600;</div>
+            </router-link>
         </div>
-        <common-gallary :imgs="imgs" v-show="showGallary" @close='handleGalaryClose'></common-gallary>
     </div>
 </template>
-
 <script>
-import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailHeader',
   data () {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/p0/1708/ef/ef538bb8d9911483a3.img.jpg_600x330_c3a0d8fa.jpg', 'http://img1.qunarzz.com/sight/p0/201403/07/6457ef01e33f69234f30949a340f2f56.jpg_600x330_f7a62e65.jpg']
+      opacity: {
+        opacity: 0
+      }
     }
-  },
-  computed: {
-
   },
   methods: {
-    handleGalaryClose () {
-      this.showGallary = false
+    handScroll () {
+      let scrollTop = document.documentElement.scrollTop
+      if (scrollTop > 40) {
+        let opacity = (scrollTop - 40) / 100.0
+        if (opacity <= 1) {
+          this.opacity = {
+            opacity: opacity
+          }
+        }
+      }
     }
   },
-  components: {
-    CommonGallary
+  activated () {
+    window.addEventListener('scroll', this.handScroll)
   }
 }
 </script>
 
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
 @import '~styles/varibles.styl';
 
-.banner {
-    position: relative;
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $headerHeight;
 
-    .img-content {
-        overflow: hidden;
-        height: 0;
-        padding-bottom: 55%;
+    .back {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 0.3rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        margin-top: 0.1rem;
+        margin-left: 0.1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .img {
-            width: 100%;
+        .back-icon {
+            color: #fff;
         }
     }
 
-    .title-content {
-        position: absolute;
-        left: 0rem;
-        bottom: 0;
-        right: 0rem;
-        height: 1.26rem;
-        padding: 0 0.2rem;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    .fix-back {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: $bgColor;
+        height: $headerHeight;
+        line-height: $headerHeight;
+        font-size: 0.32rem;
+        text-align: center;
+        color: #ffffff;
 
-        .imgs {
-            width: 1.2rem;
-            height: 0.4rem;
-            line-height: 0.4rem;
+        .header-back {
+            position: absolute;
+            width: 0.64rem;
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 0.2rem;
-            font-size: 0.24rem;
             color: #ffffff;
-        }
-
-        .title {
-            margin-top: 0.2rem;
-            display: flex;
-            justify-content: space-between;
-            color: #ffffff;
-            font-size: 0.38rem;
+            top: 0;
+            left: 0;
         }
     }
 }

@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     handleGallaryClick () {
-      console.log('点击了')
       this.$emit('close')
     }
   }
