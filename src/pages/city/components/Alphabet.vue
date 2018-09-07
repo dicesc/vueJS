@@ -1,5 +1,5 @@
 <template>
-  <div class="alphabet" @touchstart='handleTouchStart' @touchmove='handleTouchMove' @touchend='handleTouchEnd'>
+  <div class="alphabet" @touchstart.prevent='handleTouchStart' @touchmove='handleTouchMove' @touchend='handleTouchEnd'>
     <ul>
       <li class="text" v-for="key in letters" :key="key" :ref="key" @click="handleClick">{{key}}</li>
     </ul>
